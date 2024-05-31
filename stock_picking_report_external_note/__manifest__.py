@@ -5,8 +5,8 @@
     "name": "Stock Picking Report External Note",
     "summary": """Adds a note in Stock Picking shown on external reports like
     Delivery Slip""",
-    "version": "16.0.1.0.0",
-    "development_status": "Alpha",
+    "version": "17.0.1.0.0",
+    "development_status": "Beta",
     "category": "Inventory/Delivery",
     "website": "https://github.com/OCA/stock-logistics-reporting",
     "author": "Moduon, Odoo Community Association (OCA)",
