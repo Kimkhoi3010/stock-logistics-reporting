@@ -10,9 +10,9 @@ Stock Picking Report External Note
    !! source digest: sha256:022172679ac0a4cf7bf33c96224e2fd2ac90a468cb9f6e8836400f9415e66585
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-.. |badge1| image:: https://img.shields.io/badge/maturity-Alpha-red.png
+.. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
-    :alt: Alpha
+    :alt: Beta
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
@@ -30,11 +30,6 @@ Stock Picking Report External Note
 
 This module extends the functionality of stock picking to support
 external notes and to allow you to display them in the external reports.
-
-.. IMPORTANT::
-   This is an alpha version, the data model and design can change at any time without warning.
-   Only for development or testing purpose, do not use in production.
-   `More details on development status <https://odoo-community.org/page/development-status>`_
 
 **Table of contents**
 
@@ -73,6 +68,9 @@ Contributors
 ------------
 
 - Eduardo de Miguel (`Moduon <https://www.moduon.team/>`__)
+- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
+
+  - Bhavesh Heliconia
 
 Maintainers
 -----------
