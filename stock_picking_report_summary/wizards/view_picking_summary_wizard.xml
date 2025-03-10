@@ -6,7 +6,6 @@ Copyright (C) 2014 - Today: GRAP (http://www.grap.coop)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <odoo>
-
     <record id="view_picking_summary_wizard_form" model="ir.ui.view">
         <field name="model">picking.summary.wizard</field>
         <field name="arch" type="xml">
@@ -45,12 +44,11 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
     </record>
 
     <record id="action_picking_summary" model="ir.actions.act_window">
-      <field name="name">Picking Summary</field>
-      <field name="res_model">picking.summary.wizard</field>
-      <field name="view_mode">form</field>
-      <field name="target">new</field>
-      <field name="binding_model_id" ref="stock.model_stock_picking" />
-      <field name="binding_type">report</field>
+        <field name="name">Picking Summary</field>
+        <field name="res_model">picking.summary.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="stock.model_stock_picking" />
+        <field name="binding_type">report</field>
     </record>
-
 </odoo>
