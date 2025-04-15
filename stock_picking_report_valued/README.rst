@@ -33,6 +33,11 @@ partner level if picking list report must be valued or not. If the
 picking is done it's valued with quantity done, otherwise the picking is
 valued with reserved quantity.
 
+Additionally, you can configure each individual picking to be valued or
+not, regardless of the partner's configuration. This allows for more
+flexibility when generating delivery slips for different purposes or
+recipients.
+
 **Table of contents**
 
 .. contents::
@@ -41,9 +46,17 @@ valued with reserved quantity.
 Configuration
 =============
 
+To configure valued pickings at partner level:
+
 1. Go to *Sales > Orders > Customers > (select one of your choice) >
    Sales & Purchases*.
 2. Set *Valued picking* field on.
+
+To enable the valued picking option directly on picking forms:
+
+1. Go to *Inventory > Configuration > Settings*.
+2. Check the option *Display Valued Picking* in the Delivery section.
+3. Click on *Save*.
 
 Usage
 =====
@@ -55,6 +68,15 @@ To get the stock picking valued report:
 2. Confirm the Sale Order.
 3. Click on *Delivery* stat button.
 4. Go to *Print > Delivery Slip*.
+
+Alternatively, you can configure the valued report option directly on
+the picking:
+
+1. Open a stock picking.
+2. Check or uncheck the *Valued* checkbox (only visible if the company
+   setting is enabled).
+3. Go to *Print > Delivery Slip* to get the report with or without
+   values accordingly.
 
 Known issues / Roadmap
 ======================
@@ -118,6 +140,10 @@ Contributors
 - `Trobz <https://trobz.com>`__:
 
   - Nguyen Minh Chien <chien@trobz.com>
+
+- `Binhex <https://binhex.cloud>`__
+
+  - Antonio Ruban <antoniodavid8@gmail.com>
 
 Maintainers
 -----------
