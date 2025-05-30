@@ -15,4 +15,6 @@ class StockPicking(models.Model):
 
     def _get_sorted_move_lines(self):
         self.ensure_one()
-        return self.move_line_ids.sorted(lambda l: l.move_id.sale_line_id.position)
+        return self.move_line_ids.sorted(
+            lambda line: line.move_id.sale_line_id.position
+        )

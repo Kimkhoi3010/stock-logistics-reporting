@@ -24,7 +24,7 @@
     </template>
 
     <template
-        id="report_delivery_document"
+        id="report_delivery_document_inherit_stock_picking_group_by_partner_by_carrier"
         inherit_id="stock_picking_group_by_partner_by_carrier.report_delivery_document"
     >
         <!-- Add sale line position on remaining to deliver list -->
