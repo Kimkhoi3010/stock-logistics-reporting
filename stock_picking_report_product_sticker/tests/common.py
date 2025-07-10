@@ -38,7 +38,7 @@ class ProductStickerStockCommon(ProductStickerCommon):
                             "product_uom_id": product.uom_id.id,
                             "location_id": self.stock_location.id,
                             "location_dest_id": self.supplier_location.id,
-                            "qty_done": 1,
+                            "quantity": 1,
                         },
                     )
                     for product in products
