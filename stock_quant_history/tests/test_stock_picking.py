@@ -3,8 +3,8 @@
 
 
 from freezegun import freeze_time
-from setuptools.config._validate_pyproject import ValidationError
 
+from odoo.exceptions import ValidationError
 from odoo.tests import tagged, users
 
 from . import common
