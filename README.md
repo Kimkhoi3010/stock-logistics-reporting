@@ -9,7 +9,7 @@
 
 # stock-logistics-reporting
 
-TODO: add repo description.
+Reporting modules for stock and logistics in Odoo
 
 <!-- /!\ do not modify below this line -->
 
