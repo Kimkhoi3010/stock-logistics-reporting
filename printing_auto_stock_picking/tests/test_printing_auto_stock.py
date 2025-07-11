@@ -6,8 +6,8 @@ from unittest import mock
 
 from odoo.exceptions import UserError
 
+from odoo.addons.base_report_to_printer.models.printing_printer import PrintingPrinter
 from odoo.addons.printing_auto_base.tests.common import (
-    PrintingPrinter,
     TestPrintingAutoCommon,
     print_document,
 )
