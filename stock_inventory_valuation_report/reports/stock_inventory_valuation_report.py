@@ -51,7 +51,7 @@ class StockInventoryValuationReport(models.TransientModel):
         Generate report lines, one per product present at the time
         """
         self.ensure_one()
-        domain = [("type", "=", "product")]
+        domain = [("type", "=", "consu")]
         product_id = self.env.context.get("product_id")
         product_tmpl_id = self.env.context.get("product_tmpl_id")
         if product_id:
@@ -114,12 +114,13 @@ class StockInventoryValuationReport(models.TransientModel):
         report = self.browse(self._context.get("active_id"))
         if report:
             rcontext["o"] = report
-            result["html"] = self.env.ref(
-                "stock_inventory_valuation_report."
-                "report_stock_inventory_valuation_report_html"
-            )._render(rcontext)
+            result["html"] = self.env["ir.ui.view"]._render_template(
+                "stock_inventory_valuation_report.report_stock_inventory_valuation_report_html",
+                rcontext,
+            )
         return result
 
     @api.model
     def get_html(self, given_context=None):
-        return self.with_context(given_context)._get_html()
+        given_context = given_context or {}
+        return self.with_context(**given_context)._get_html()

@@ -5,15 +5,14 @@ import datetime
 
 from dateutil.relativedelta import relativedelta
 
-from odoo.tests import common
+from odoo.tests import TransactionCase
 from odoo.tools import mute_logger, test_reports
 
 
-class TestStockInventoryValuation(common.SavepointCase):
+class TestStockInventoryValuation(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
 
         cls.inv_valuation_report_model = cls.env[
             "report.stock.inventory.valuation.report"
@@ -70,11 +69,10 @@ class TestStockInventoryValuation(common.SavepointCase):
         self.report.print_report("xlsx")
 
 
-class TestStockInventoryValuationReport(common.SavepointCase):
+class TestStockInventoryValuationReport(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.company_id = cls.env.ref("base.main_company")
         cls.date = datetime.datetime.now()
 
@@ -111,7 +109,7 @@ class TestStockInventoryValuationReport(common.SavepointCase):
         product = self.env["product.product"].create(
             {
                 "name": "test valuation report date",
-                "type": "product",
+                "type": "consu",
                 "company_id": self.company_id.id,
                 "categ_id": self.product_category_all.id,
             }
@@ -129,7 +127,7 @@ class TestStockInventoryValuationReport(common.SavepointCase):
                 "picking_type_id": self.picking_type_in_id.id,
                 "partner_id": partner_id.id,
                 "company_id": self.company_id.id,
-                "move_lines": [
+                "move_ids": [
                     (
                         0,
                         0,
@@ -138,7 +136,7 @@ class TestStockInventoryValuationReport(common.SavepointCase):
                             "product_id": product.id,
                             "product_uom": product.uom_id.id,
                             "product_uom_qty": product_qty,
-                            "quantity_done": product_qty,
+                            "quantity": product_qty,
                         },
                     )
                 ],
@@ -146,7 +144,7 @@ class TestStockInventoryValuationReport(common.SavepointCase):
         )
         receipt.action_confirm()
         receipt.button_validate()
-        move = receipt.move_lines
+        move = receipt.move_ids
         move.date = date_with_stock
         move.stock_valuation_layer_ids._write({"create_date": date_with_stock})
         self.assertEqual(
@@ -186,7 +184,7 @@ class TestStockInventoryValuationReport(common.SavepointCase):
                 "partner_id": partner_id.id,
                 "company_id": self.company_id.id,
                 "picking_type_id": self.picking_type_out_id.id,
-                "move_lines": [
+                "move_ids": [
                     (
                         0,
                         0,
@@ -195,7 +193,7 @@ class TestStockInventoryValuationReport(common.SavepointCase):
                             "product_id": product.id,
                             "product_uom": product.uom_id.id,
                             "product_uom_qty": product_qty,
-                            "quantity_done": product_qty,
+                            "quantity": product_qty,
                         },
                     )
                 ],
@@ -204,7 +202,7 @@ class TestStockInventoryValuationReport(common.SavepointCase):
         delivery.action_confirm()
         delivery.button_validate()
         date_no_stock = self.date + relativedelta(hours=-6)
-        move = delivery.move_lines
+        move = delivery.move_ids
         move.date = date_no_stock
         move.stock_valuation_layer_ids._write({"create_date": date_no_stock})
         self.assertEqual(

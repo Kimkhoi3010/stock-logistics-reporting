@@ -7,12 +7,37 @@
         <field name="arch" type="xml">
             <button name="open_at_date" position="attributes">
                 <!-- Restoring v12 button name, to differentiate from other buttons -->
-                <attribute name="string">Retrieve the Inventory Quantities</attribute>
+                <attribute name="invisible">
+                    context.get('active_model') != 'product.product'
+                </attribute>
             </button>
             <button name="open_at_date" position="after">
-                <button name="button_export_html" string="View report" type="object" />
-                <button name="button_export_pdf" string="Export PDF" type="object" />
-                <button name="button_export_xlsx" string="Export XLSX" type="object" />
+                <button
+                    name="open_at_date"
+                    string="Retrieve the Inventory Quantities"
+                    type="object"
+                    class="btn-primary"
+                    data-hotkey="q"
+                    invisible="context.get('active_model') != 'stock.valuation.layer'"
+                />
+                <button
+                    name="button_export_html"
+                    string="View report"
+                    type="object"
+                    invisible="context.get('active_model') != 'stock.valuation.layer'"
+                />
+                <button
+                    name="button_export_pdf"
+                    string="Export PDF"
+                    type="object"
+                    invisible="context.get('active_model') != 'stock.valuation.layer'"
+                />
+                <button
+                    name="button_export_xlsx"
+                    string="Export XLSX"
+                    type="object"
+                    invisible="context.get('active_model') != 'stock.valuation.layer'"
+                />
             </button>
         </field>
     </record>
