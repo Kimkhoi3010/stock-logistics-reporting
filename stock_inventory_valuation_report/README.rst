@@ -41,7 +41,7 @@ Usage
 
 To use this module, you need to:
 
-1. Go to Inventory > Reporting > Inventory Valuation.
+1. Go to Inventory > Reporting > Valuation.
 2. Select Inventory At Date.
 3. You can now choose a few additional options: "View report", "Export
    PDF" and "Export XLSX".
@@ -80,6 +80,16 @@ Contributors
 - `PyTech SRL <https://www.pytech.it>`__
 
   - `Alessandro Uffreduzzi <alessandro.uffreduzzi@pytech.it>`__
+
+- [Trobz] (https://trobz.com/):
+
+  - Khoi (Kien Kim) <khoikk@trobz.com>
+
+Other credits
+-------------
+
+The migration of this module from 14.0 to 18.0 was financially supported
+by Camptocamp.
 
 Maintainers
 -----------

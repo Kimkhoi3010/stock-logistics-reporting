@@ -8,3 +8,6 @@
 
 - [PyTech SRL](https://www.pytech.it)  
   - [Alessandro Uffreduzzi](alessandro.uffreduzzi@pytech.it)
+
+- [Trobz] (https://trobz.com/):
+  - Khoi (Kien Kim) \<<khoikk@trobz.com>\>

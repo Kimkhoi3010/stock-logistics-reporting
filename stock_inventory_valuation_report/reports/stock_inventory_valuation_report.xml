@@ -49,23 +49,6 @@
         <field name="attachment_use">False</field>
     </record>
 
-    <template
-        id="assets_backend"
-        name="stock_inventory_valuation_report assets"
-        inherit_id="web.assets_backend"
-    >
-        <xpath expr="." position="inside">
-            <link
-                href="/stock_inventory_valuation_report/static/src/css/report.css"
-                rel="stylesheet"
-            />
-            <script
-                type="text/javascript"
-                src="/stock_inventory_valuation_report/static/src/js/stock_inventory_valuation_report_backend.js"
-            />
-        </xpath>
-    </template>
-
     <template id="stock_inventory_valuation_report.internal_layout">
         <div class="article">
             <link
@@ -97,7 +80,6 @@
 
     <template id="report_stock_inventory_valuation_report_html">
         <div class="o_stock_inventory_valuation_report_page">
-            <t t-call="stock_inventory_valuation_report.report_buttons" />
             <t
                 t-call="stock_inventory_valuation_report.report_stock_inventory_valuation_report_base"
             />
