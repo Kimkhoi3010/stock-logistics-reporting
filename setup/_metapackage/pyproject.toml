@@ -1,6 +1,6 @@
 [project]
 name = "odoo-addons-oca-stock-logistics-reporting"
-version = "18.0.20251006.1"
+version = "18.0.20251006.2"
 dependencies = [
     "odoo-addon-delivery_line_sale_line_position==18.0.*",
     "odoo-addon-printing_auto_stock_picking==18.0.*",
@@ -10,6 +10,7 @@ dependencies = [
     "odoo-addon-stock_picking_batch_report==18.0.*",
     "odoo-addon-stock_picking_comment_template==18.0.*",
     "odoo-addon-stock_picking_group_by_partner_by_carrier_sale_line_position==18.0.*",
+    "odoo-addon-stock_picking_operations_multilang==18.0.*",
     "odoo-addon-stock_picking_report_custom_description==18.0.*",
     "odoo-addon-stock_picking_report_delivery_driver==18.0.*",
     "odoo-addon-stock_picking_report_external_note==18.0.*",
