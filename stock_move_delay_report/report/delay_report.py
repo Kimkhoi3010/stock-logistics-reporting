@@ -48,9 +48,7 @@ class StockMoveDelayReport(models.Model):
             sm.product_uom,
             sm.supplier_id,
             sm.company_id
-        """ % (
-            self._done_on_time()
-        )
+        """ % (self._done_on_time())
 
     def _from(self):
         return """
