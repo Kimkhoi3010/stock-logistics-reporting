@@ -19,9 +19,9 @@ class StockMoveDelayReport(models.Model):
     reference = fields.Char(readonly=True)
     location_src_id = fields.Many2one("stock.location", "From", readonly=True)
     location_dest_id = fields.Many2one("stock.location", "To", readonly=True)
-    date_delay = fields.Float(group_operator="avg", readonly=True)
-    delivery_time = fields.Float(group_operator="avg", readonly=True)
-    done_on_time = fields.Float("Done on Time", group_operator="avg", readonly=True)
+    date_delay = fields.Float(aggregator="avg", readonly=True)
+    delivery_time = fields.Float(aggregator="avg", readonly=True)
+    done_on_time = fields.Float("Done on Time", aggregator="avg", readonly=True)
     product_uom = fields.Many2one("uom.uom", "Unit of Measure", readonly=True)
     supplier_id = fields.Many2one("res.partner", "Supplier", readonly=True)
     company_id = fields.Many2one("res.company", string="Company")
@@ -32,7 +32,7 @@ class StockMoveDelayReport(models.Model):
         """
 
     def _select(self):
-        return """
+        return f"""
             sm.id,
             COALESCE(sm.original_date, picking.scheduled_date) AS original_date,
             sm.create_date,
@@ -44,11 +44,11 @@ class StockMoveDelayReport(models.Model):
             sm.location_dest_id,
             sm.date_delay,
             sm.delivery_time,
-            %s,
+            {self._done_on_time()},
             sm.product_uom,
             sm.supplier_id,
             sm.company_id
-        """ % (self._done_on_time())
+        """
 
     def _from(self):
         return """
@@ -67,20 +67,16 @@ class StockMoveDelayReport(models.Model):
             """
 
     def _query(self):
-        return """
-            (SELECT %s
-            FROM %s
-            WHERE %s)
-        """ % (
-            self._select(),
-            self._from(),
-            self._where(),
-        )
+        return f"""
+            (SELECT {self._select()}
+            FROM {self._from()}
+            WHERE {self._where()})
+        """
 
     def init(self):
         tools.drop_view_if_exists(self.env.cr, self._table)
         query = self._query()
         # pylint: disable=E8103
         self.env.cr.execute(
-            """CREATE or REPLACE VIEW %s as (%s)""", (AsIs(self._table), AsIs(query))
+            f"""CREATE or REPLACE VIEW {AsIs(self._table)} as ({AsIs(query)})"""
         )

@@ -27,7 +27,7 @@
         <field name="name">stock.move.delay.report.tree</field>
         <field name="model">stock.move.delay.report</field>
         <field name="arch" type="xml">
-            <tree create="0">
+            <list create="0">
                 <field name="supplier_id" />
                 <field name="create_date" />
                 <field name="original_date" />
@@ -41,7 +41,7 @@
                 <field name="date_delay" />
                 <field name="delivery_time" />
                 <field name="company_id" />
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -54,13 +54,12 @@
                 <filter
                     name="group_supplier_id"
                     string="Supplier"
-                    icon="terp-partner"
                     context="{'group_by':'supplier_id'}"
                 />
                 <filter
                     string="Only Products"
                     name="only_products"
-                    domain="[('product_id.type', '=', 'product')]"
+                    domain="[('product_id.is_storable', '=', True)]"
                 />
                 <filter
                     string="Only Services"
@@ -85,7 +84,7 @@
     <record id="action_stock_move_delay_report" model="ir.actions.act_window">
         <field name="name">Delay Analysis</field>
         <field name="res_model">stock.move.delay.report</field>
-        <field name="view_mode">graph,pivot,tree</field>
+        <field name="view_mode">graph,pivot,list</field>
         <field name="search_view_id" ref="stock_move_delay_report_search_view" />
         <field name="context">{
             'search_default_group_supplier_id': 1,
