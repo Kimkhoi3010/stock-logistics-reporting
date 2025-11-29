@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -24,6 +24,11 @@ msgid "Complete a new stock move"
 msgstr ""
 
 #. module: stock_move_delay_report
+#: model:ir.model.fields,field_description:stock_move_delay_report.field_stock_move_delay_report__create_date
+msgid "Created Date"
+msgstr ""
+
+#. module: stock_move_delay_report
 #: model_terms:ir.ui.view,arch_db:stock_move_delay_report.stock_move_delay_report_search_view
 msgid "Date"
 msgstr ""
@@ -32,11 +37,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:stock_move_delay_report.field_stock_move__date_delay
 #: model:ir.model.fields,field_description:stock_move_delay_report.field_stock_move_delay_report__date_delay
 msgid "Date Delay"
-msgstr ""
-
-#. module: stock_move_delay_report
-#: model:ir.model.fields,field_description:stock_move_delay_report.field_stock_move_delay_report__date
-msgid "Date Scheduled"
 msgstr ""
 
 #. module: stock_move_delay_report
@@ -53,8 +53,19 @@ msgid "Delay Analysis Report"
 msgstr ""
 
 #. module: stock_move_delay_report
+#: model:ir.model.fields,field_description:stock_move_delay_report.field_stock_move__delivery_time
+#: model:ir.model.fields,field_description:stock_move_delay_report.field_stock_move_delay_report__delivery_time
+msgid "Delivery Time"
+msgstr ""
+
+#. module: stock_move_delay_report
 #: model:ir.model.fields,field_description:stock_move_delay_report.field_stock_move_delay_report__display_name
 msgid "Display Name"
+msgstr ""
+
+#. module: stock_move_delay_report
+#: model:ir.model.fields,field_description:stock_move_delay_report.field_stock_move_delay_report__date
+msgid "Done Date"
 msgstr ""
 
 #. module: stock_move_delay_report
@@ -73,15 +84,17 @@ msgid "ID"
 msgstr ""
 
 #. module: stock_move_delay_report
+#: model:ir.model.fields,help:stock_move_delay_report.field_stock_move__delivery_time
+msgid ""
+"If the move is done, the difference between the original scheduled date and "
+"the end date"
+msgstr ""
+
+#. module: stock_move_delay_report
 #: model:ir.model.fields,help:stock_move_delay_report.field_stock_move__date_delay
 msgid ""
 "If the move is done, the difference between the scheduled date and the "
 "deadline"
-msgstr ""
-
-#. module: stock_move_delay_report
-#: model:ir.model.fields,field_description:stock_move_delay_report.field_stock_move_delay_report____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: stock_move_delay_report
@@ -111,7 +124,7 @@ msgid "Only Services"
 msgstr ""
 
 #. module: stock_move_delay_report
-#: model:ir.model.fields,help:stock_move_delay_report.field_stock_move__responsible_id
+#: model:ir.model.fields,help:stock_move_delay_report.field_stock_move__supplier_id
 msgid "Partner responsible of completing the move on time."
 msgstr ""
 
@@ -126,10 +139,8 @@ msgid "Reference"
 msgstr ""
 
 #. module: stock_move_delay_report
-#: model:ir.model.fields,field_description:stock_move_delay_report.field_stock_move__responsible_id
-#: model:ir.model.fields,field_description:stock_move_delay_report.field_stock_move_delay_report__responsible_id
-#: model_terms:ir.ui.view,arch_db:stock_move_delay_report.stock_move_delay_report_search_view
-msgid "Responsible"
+#: model:ir.model.fields,field_description:stock_move_delay_report.field_stock_move_delay_report__original_date
+msgid "Scheduled Date"
 msgstr ""
 
 #. module: stock_move_delay_report
@@ -145,6 +156,13 @@ msgstr ""
 #. module: stock_move_delay_report
 #: model:ir.model.fields,field_description:stock_move_delay_report.field_stock_move_delay_report__move_id
 msgid "Stock Move #"
+msgstr ""
+
+#. module: stock_move_delay_report
+#: model:ir.model.fields,field_description:stock_move_delay_report.field_stock_move__supplier_id
+#: model:ir.model.fields,field_description:stock_move_delay_report.field_stock_move_delay_report__supplier_id
+#: model_terms:ir.ui.view,arch_db:stock_move_delay_report.stock_move_delay_report_search_view
+msgid "Supplier"
 msgstr ""
 
 #. module: stock_move_delay_report
